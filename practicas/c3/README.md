@@ -33,6 +33,7 @@ Tamaño del arreglo (n)	Prueba 1 (ms)	Prueba 2 (ms)	Prueba 3 (ms)	Prueba 4 (ms)	
 100.000 registros	2.1	2.3	2.0	2.2	2.4	2.2 ms	-
 400.000 registros (4n)	8.5	8.1	8.8	8.3	8.2	8.38 ms	~ 3.8x
 1.600.000 registros (16n)	33.2	34.1	32.9	33.5	33.0	33.34 ms	~ 3.9x
+
 3. Mi conclusión
 Sí, el tiempo dio cerca de x4 (3.8x y 3.9x).
 
