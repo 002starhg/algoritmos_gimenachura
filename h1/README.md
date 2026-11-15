@@ -34,3 +34,17 @@ Así se ve la estructura de la tabla de historial de transferencias de donde se 
 | 1009 | 20001 | Seguridad | 2023-05-15 | 2024-05-14 | 2023-05-15 |
 | 1009 | 20001 | Infraestructura | 2024-05-15 | 2025-05-14 | 2024-05-15 |
 | 1009 | 20001 | Arquitectura | 2025-05-15 | 2026-05-14 | 2025-05-15 |
+
+*****
+## 3. Complejidad Algorítmica del Proceso Completo
+El script completo de sincronización tiene una complejidad de tiempo de **O(N × M)**, donde:
+*   **N** es la cantidad de empleados (más de 1,000).
+*   **M** es la cantidad de registros de historial por empleado (hasta 20 registros).
+
+**¿Por qué es O(N × M)?**
+1. Hay un bucle principal que recorre a cada uno de los \(N\) empleados.
+2. Por cada empleado, el sistema hace una consulta a la base de datos y luego un bucle interno (búsqueda lineal) para revisar sus \(M\) registros.
+3. Al estar un bucle dentro de otro, el trabajo se multiplica. Pero el verdadero problema de que tarde 15 minutos no es la CPU, sino la **red**: hacer \(N\) peticiones individuales (más de 1,000 viajes de ida y vuelta al servidor de base de datos) es lo que causa la lentitud extrema.
+
+**¿Cómo se soluciona?**
+Para bajar el costo a un solo paso **O(N)** y ahorrarnos las 1,000 peticiones, la solución es no usar un bucle en PHP. En su lugar, se debe enviar **una sola consulta SQL** con un `JOIN` o un `UPDATE ... FROM` para que el motor de la base de datos haga todo el trabajo pesado de una sola vez.
