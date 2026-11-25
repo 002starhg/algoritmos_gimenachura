@@ -1,7 +1,7 @@
 
 # Hilda Gimena Chura Guarachi
 
-## I1
+## I1 ANALIZAR Y ELEGIR
 
 **a) Costo de PlanificadorIngenuo.Elegir**
 El costo es O(2^n * n) 
