@@ -2,22 +2,24 @@
 
 **Nombre:** Gimena Chura Guarachi
 
-## 1. Código de Búsqueda Lineal (JavaScript)
-Hecho con JavaScript
+## 1. Código de Búsqueda Lineal (PHP)
 
-```javascript
-function busquedaLineal(lista, buscado) {
-    for (let i = 0; i < lista.length; i++) {
-        if (lista[i] === buscado) return i;
-    }
-    return -1;
-}
+```php
+<?php
+// Hilda Gimena Chura Guarachi
 
-// Generador de arreglos para las pruebas
-function generarArreglo(n) {
-    let arr = [];
-    for(let i = 0; i < n; i++) {
-        arr.push(i);
+function busquedaLineal($lista, $buscado) {
+    $inicio = microtime(true);
+    $encontrado = -1;
+    
+    for ($i = 0; $i < count($lista); $i++) {
+        if ($lista[$i] == $buscado) {
+            $encontrado = $i;
+            break;
+        }
     }
-    return arr;
+    
+    $fin = microtime(true);
+    return ($fin - $inicio) * 1000; // Retorna milisegundos
 }
+?>
